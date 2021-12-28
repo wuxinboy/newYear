@@ -28,13 +28,28 @@ h1 span{
   width: 100%;
   text-align: center;
 margin-top:30px;
-    font-size:40px;
+    font-size:60px;
+}
+.showNew{
+  color: white;
+    position: fixed;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+    font-size: 80px;
+    top: 30px;
+    color: brown;
+}
+.none{
+  display: none;
 }
 </style>
 
 </head>
 <body>
 <h1 id="h1"></h1>
+<div class="showNew none">
+  新年快乐<br>这是专属于你的烟火</div>
 <canvas></canvas> <!--canvas 画布-->
 <div class="hovertree"></div>
 <script type="text/javascript" src="./min.js"></script>
@@ -133,22 +148,33 @@ window.addEventListener("touchmove", onMove);
 window.addEventListener("resize", onResize);
 requestAnimationFrame(render);
 
-window.onload=function starttime(){
+window.onload=function init(){
+  time(h1,'2022/1/1')
+  setTimeout(starttime,5000)
+  $('.showNew').hide()
         // if(new Date().getTime() >= 1640966400000) {
-          $('.hovertree').fireworks({
-            sound: true, // sound effect
-            opacity: 0.9, 
-            width: '100%', 
-            height: '100%',
-          });
-          // clearTimeout(ptimer)
+        //   $('.hovertree').fireworks({
+        //     sound: true, // sound effect
+        //     opacity: 0.9, 
+        //     width: '100%', 
+        //     height: '100%',
+        //   });
+        //   clearTimeout(ptimer)
         // } else {
         //   time(h1,'2022/1/1');     // 2021年春节时间
         //  ptimer = setTimeout(starttime,1000); // 添加计时器
         // }
         
-}
-
+};
+    function starttime(){
+      $('.hovertree').fireworks({
+            sound: true, // sound effect
+            opacity: 0.9, 
+            width: '100%', 
+            height: '100%',
+          });
+          $('.showNew').show()
+    };
     function time(obj,futimg){
         var nowtime = new Date().getTime(); // 现在时间转换为时间戳
         var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
@@ -158,7 +184,9 @@ window.onload=function starttime(){
         var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数 
         var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
         var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
-        obj.innerHTML="<br>距离2022年还有：<br>"+day+"天"+hour+"小时"+minute+"分"+second+"秒"+"<br><span>愿我所念的人平安喜乐，<br>愿我所想的事顺心如意。<br>May the people I think of be safe and happy, <br>and may the things I think of be all right.</span>"
+        obj.innerHTML=
+        "<br>距离2022年还有：<br>"+day+"天"+hour+"小时"+minute+"分"+second+"秒"
+        +"<br> <span>往后余生,<br>风雪是你,<br>平淡是你,<br>清贫也是你,<br>荣华是你,<br>心底温柔是你,<br>目光所致,也是你。<br></span>"
         return true;
     }
 </script>
