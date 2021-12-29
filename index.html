@@ -6,10 +6,9 @@
 <link rel="stylesheet" type="text/css" href="./css1.css" />
 <link rel="stylesheet" type="text/css" href="./css2.css">
 <style>
-body{
-  overflow: hidden;
-  margin: 0;
-}
+
+body{margin:0;padding:0;overflow: hidden;} .city{width:100%;position:fixed;bottom:
+                0px;z-index: 100;} .city img{width: 100%;}
 h1{
   position: fixed;
   top: 30%;
@@ -47,10 +46,14 @@ margin-top:30px;
 
 </head>
 <body>
+ 
 <h1 id="h1"></h1>
 <div class="showNew none">
   新年快乐<br>这是专属于你的烟火</div>
-<canvas></canvas> <!--canvas 画布-->
+<canvas  style="background-color:rgba(0,5,24,1)"></canvas> <!--canvas 画布-->
+<div class="city">
+  <img src="city.png" alt="" />
+</div>
 <div class="hovertree"></div>
 <script type="text/javascript" src="./min.js"></script>
 <script type="text/javascript" src="./fireworks.js"></script>
@@ -167,13 +170,14 @@ window.onload=function init(){
         
 };
     function starttime(){
-      $('.hovertree').fireworks({
-            sound: true, // sound effect
-            opacity: 0.9, 
-            width: '100%', 
-            height: '100%',
-          });
-          $('.showNew').show()
+      window.location.href='https://wuxinboy.github.io/fireWork/'
+      // $('.hovertree').fireworks({
+      //       sound: true, // sound effect
+      //       opacity: 0.9, 
+      //       width: '100%', 
+      //       height: '100%',
+      //     });
+      //     $('.showNew').show()
     };
     function time(obj,futimg){
         var nowtime = new Date().getTime(); // 现在时间转换为时间戳
