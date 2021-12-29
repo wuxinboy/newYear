@@ -151,34 +151,16 @@ window.addEventListener("touchmove", onMove);
 window.addEventListener("resize", onResize);
 requestAnimationFrame(render);
 
-window.onload=function init(){
-  time(h1,'2022/1/1')
-  setTimeout(starttime,5000)
-  $('.showNew').hide()
-        // if(new Date().getTime() >= 1640966400000) {
-        //   $('.hovertree').fireworks({
-        //     sound: true, // sound effect
-        //     opacity: 0.9, 
-        //     width: '100%', 
-        //     height: '100%',
-        //   });
-        //   clearTimeout(ptimer)
-        // } else {
-        //   time(h1,'2022/1/1');     // 2021年春节时间
-        //  ptimer = setTimeout(starttime,1000); // 添加计时器
-        // }
+window.onload=function starttime(){
+        if(new Date().getTime() >= 1640966400000) {
+          window.location.href='https://wuxinboy.github.io/fireWork/'
+          clearTimeout(ptimer)
+        } else {
+          time(h1,'2022/1/1');     // 2021年春节时间
+         ptimer = setTimeout(starttime,1000); // 添加计时器
+        }
         
 };
-    function starttime(){
-      window.location.href='https://wuxinboy.github.io/fireWork/'
-      // $('.hovertree').fireworks({
-      //       sound: true, // sound effect
-      //       opacity: 0.9, 
-      //       width: '100%', 
-      //       height: '100%',
-      //     });
-      //     $('.showNew').show()
-    };
     function time(obj,futimg){
         var nowtime = new Date().getTime(); // 现在时间转换为时间戳
         var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
